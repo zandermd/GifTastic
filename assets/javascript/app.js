@@ -16,12 +16,12 @@ $("add-outdoor-button").on("click", function (e) {
     if (topics.indexOf($("#new-outdoor-input").val()) !== -1) {
         alreadyExist = true;
     }
-
+    //CHANGE ANYTHING 'ADEVNTURE' TO OUTDOOR
     if ($("#new-outdoor-input").val() !== "" && alreadyExist === false) {
-        var newAdventure = $("#new-adventure-input").val().toLowerCase();
-        topics.push(newAdventure);
-        var button = $("<button>").text(newAdventure);
-        button.attr("data-outdoor", newAdventure);
+        var newOutdoor = $("#new-outdoor-input").val().toLowerCase();
+        topics.push(newOutdoor);
+        var button = $("<button>").text(newOutdoor);
+        button.attr("data-outdoor", newOutdoor);
         button.addClass("outdoor-button");
         $("#button-group").append(button);
     }
@@ -29,42 +29,43 @@ $("add-outdoor-button").on("click", function (e) {
 
 });
 
-$(document).on("click", ".adventure-button", function () {
-    var outdoors = $(this).attr("data-outdoors");
+$(document).on("click", ".outdoor-button", function () {
+    var outdoors = $(this).attr("data-outdoor");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        outdoors + "&api_key=QlN4l8JNkLJjexCRE2QGzqU14JsTxgSL";
+        outdoors + "&api_key=QlN4l8JNkLJjexCRE2QGzqU14JsTxgSL&limit=10";
 
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).done(function (response) {
+    })
+        .then(function (response) {
 
-        var results = response.data;
+            var results = response.data;
 
-        var resultsContainerSection = $("<section class ='results-container'>");
+            var resultsContainerSection = $("<section class ='results-container'>");
 
-        console.log(results);
+            console.log(results);
 
-        for (var i = 0; i < results.length; i++) {
-            var singleResultDiv = $("<div class='result-container'>");
+            for (var i = 0; i < results.length; i++) {
+                var singleResultDiv = $("<div class='result-container'>");
 
-            var rating = results[i].rating;
+                var rating = results[i].rating;
 
-            var p = $("<p>").text("Rating: " + rating);
+                var p = $("<p>").text("Rating: " + rating);
 
-            var adventureImg = $("<img class='result'>");
-            adventureImg.attr("src", results[i].images.fixed_height_still.url);
-            adventureImg.attr("data-state", "still");
-            adventureImg.attr("data-still", results[i].images.fixed_height_still.url);
-            adventureImg.attr("data-animate", results[i].images.fixed_height.url);
+                var outdoorImg = $("<img class='result'>");
+                outdoorImg.attr("src", results[i].images.fixed_height_still.url);
+                outdoorImg.attr("data-state", "still");
+                outdoorImg.attr("data-still", results[i].images.fixed_height_still.url);
+                outdoorImg.attr("data-animate", results[i].images.fixed_height.url);
 
-            singleResultDiv.prepend(adventureImg);
-            singleResultDiv.prepend(p);
+                singleResultDiv.prepend(adventureImg);
+                singleResultDiv.prepend(p);
 
-            resultsContainerSection.prepend(singleResultDiv);
-        }
-        $("#adventure-group").prepend(resultsContainerSection);
-    });
+                resultsContainerSection.prepend(singleResultDiv);
+            }
+            $("#outdoor-group").prepend(resultsContainerSection);
+        });
 
 });
 
