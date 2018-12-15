@@ -1,0 +1,111 @@
+body {
+    width: auto;
+    height: auto;
+    margin: 0;
+    background-image: url("file:///Users/zanderdyer/Downloads/4k-wallpaper-conifers-desktop-wallpaper-1367192.jpg");
+    background-size: cover;
+    cursor: pointer;
+}
+
+header {
+	font-weight: bold;
+	font-size: 100px;
+    margin-bottom: 15px;
+    font-size: xx-large;
+    font-family: fantasy;
+}
+
+.wrapper {
+    margin: 60px 0 60px 60px;
+}
+
+.outdoor-button {
+	font-size: 14px;
+	background: #DCDCDC;
+	border: none;
+	padding: 10px 15px;
+	margin: 6px;
+    border-radius: 10px;
+}
+
+.outdoor-button:hover, .outdoor-button:active {
+	background: #5C3836;
+	color: #fff;
+}
+
+#add-outdoor-button {
+	font-size: 14px;
+	color: black;
+	background: #DCDCDC;
+	border: none;
+	padding: 10px 15px;
+	margin: 6px;
+	border-radius: 10px;
+}
+
+#add-outdoor-button:hover, #add-outdoor-button:active {
+    background: #472405;
+    color: #fff;
+}
+
+#new-outdoor-input {
+	padding: 10px 15px;
+	font-size: 14px;
+	border: none;
+	border-radius: 10px;
+}
+
+#button-group {
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+
+.results-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+.result-container {
+	margin: 30px 30px 0 0;
+}
+
+.result {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.result:hover {
+	-webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow:    10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+	box-shadow:         10px 10px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+p {
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin: 0 0 6px 4px;
+}
+
+footer {
+    position: fixed;bottom:0;left:0;right:0;height:30px;
+    height: 20px;
+    width: 100%;
+    background-color: #333333;
+    text-align: center;
+    color: #DCDCDC;
+
+}
+
+p.copyright {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    line-height: 40px;
+    font-size: 0.7em;
+    text-align: center;
+    bottom:0;
+}
