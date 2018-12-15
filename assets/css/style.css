@@ -5,6 +5,7 @@ body {
     background-image: url("file:///Users/zanderdyer/Downloads/4k-wallpaper-conifers-desktop-wallpaper-1367192.jpg");
     background-size: cover;
     cursor: pointer;
+    background-attachment: fixed;
 }
 
 header {

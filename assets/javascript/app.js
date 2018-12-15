@@ -3,9 +3,9 @@ var topics = ["Hiking", "Camping", "Rock Climbing", "Swimming", "Fishing", "Hunt
 
 //for loop to run through array and add buttons to the HTML
 
-for (var i = 0; i < topics.length; i++) {
-    var button = $("<button>").text(topics[i]);
-    button.attr("data-outdoor", topics[i]);
+for (var z = 0; z < topics.length; z++) {
+    var button = $("<button>").text(topics[z]);
+    button.attr("data-outdoor", topics[z]);
     button.addClass("outdoor-button");
     $("#button-group").append(button);
 }
@@ -31,8 +31,8 @@ $("#add-outdoor-button").on("click", function (e) {
 //on click to add gifs to the page through API 
 $(document).on("click", ".outdoor-button", function () {
     var outdoors = $(this).attr("data-outdoor");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=&q=outdoors&limit=10&offset=0&rating=PG-13&lang=en";
-
+    var key = 'Rts1E3CaUhQgPgL9Cbf5WgSsC14V3HEN'
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=outdoors&limit=10&offset=0&rating=PG-13&lang=en";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -41,7 +41,7 @@ $(document).on("click", ".outdoor-button", function () {
 
         console.log(results);
 
-        var resultsContainerSection = $("<section class ='results-container'>");
+        var resultsContainerSection = $("<section class='results-container'>");
 
         for (var i = 0; i < results.length; i++) {
             var singleResultDiv = $("<div class='result-container'>");
@@ -61,7 +61,7 @@ $(document).on("click", ".outdoor-button", function () {
 
             resultsContainerSection.prepend(singleResultDiv);
         }
-        $("#outdoor-group").prepend(resultsContainerSection);
+        $("#container").prepend(resultsContainerSection);
     });
 
 });
